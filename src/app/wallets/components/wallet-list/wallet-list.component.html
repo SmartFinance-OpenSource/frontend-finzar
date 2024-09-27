@@ -1,15 +1,17 @@
 
-
-
 <div style="display: flex; gap: 1rem; align-items: center;">
-  <!-- First Card -->
-  <app-wallet-item *ngFor="let wallet of wallets" [wallet]="wallet"/>
 
-  <!-- Second Card (with plus icon) -->
-  <mat-card appearance="outlined" style="display: inline-block; padding: 2.5rem 0rem;">
+  <app-wallet-item *ngFor="let wallet of wallets" [wallet]="wallet"
+    />
+
+
+  <mat-card appearance="outlined" style="display: inline-block; padding: 2.5rem 0rem;"
+    (click)="OnAddWallet()" class="add-item" >
     <div style="display: flex; align-items: center;">
-      <mat-icon fontIcon="add" style=""/>
+      <mat-icon fontIcon="add" style="" class=/>
     </div>
 
   </mat-card>
+
+
 </div>

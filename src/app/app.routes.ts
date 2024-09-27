@@ -4,7 +4,7 @@ import {WalletViewComponent} from "./wallets/pages/wallet-view/wallet-view.compo
 
 export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'wallet', component: WalletViewComponent},
+  { path: 'wallet/:id', component: WalletViewComponent },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**',  redirectTo: 'dashboard' , pathMatch: 'full'}
 ];

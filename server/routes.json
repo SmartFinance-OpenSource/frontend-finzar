@@ -1,17 +1,3 @@
 {
-  "/api/v1/users": "/users",
-  "/api/v1/users/:userId": "/users/:userId",
-  "/api/v1/users/:userId/wallets": "/wallets?userId=:userId",
-  "/api/v1/wallets/:walletId": "/wallets/:walletId",
-  "/api/v1/wallets/:walletId/earnings": "/earnings?walletId=:walletId",
-  "/api/v1/wallets/:walletId/expenses": "/expenses?walletId=:walletId",
-  "/api/v1/wallets/:walletId/savings": "/savings?walletId=:walletId",
-  "/api/v1/wallets/:walletId/budgets": "/budgets?walletId=:walletId",
-  "/api/v1/wallets/:walletId/transactions": "/transactions?walletId=:walletId",
-  "/api/v1/transactions": "/transactions",
-  "/api/v1/transactions/:transactionId": "/transactions/:transactionId",
-  "/api/v1/categories": "/categories",
-  "/api/v1/recurrents": "/recurrents",
-  "/api/v1/transaction_types": "/transaction_types"
+  "/api/v1/*": "/$1"
 }
-

@@ -4,6 +4,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
+import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
+import {NgIf} from "@angular/common";
 
 
 @Component({
@@ -11,7 +13,7 @@ import {MatButtonModule} from "@angular/material/button";
   standalone: true,
   imports: [
     MatCardModule, MatFormFieldModule, FormsModule, MatInputModule,
-    MatButtonModule
+    MatButtonModule, MatDialogModule, NgIf
   ],
   templateUrl: './create-wallet.component.html',
   styleUrl: './create-wallet.component.css'
@@ -20,16 +22,19 @@ export class CreateWalletComponent {
   walletName: string = '';
   initialBalance = 0;
 
+
+  constructor(private dialogRef: MatDialogRef<CreateWalletComponent>) {}
+
   onSubmit(): void {
-    // Handle the form submission logic here
-    console.log('Wallet Name:', this.walletName);
-    console.log('Initial Balance:', this.initialBalance);
+    if (this.walletName && this.initialBalance >= 0) {
+      this.dialogRef.close({
+        walletName: this.walletName,
+        initialBalance: this.initialBalance
+      });
+    }
   }
 
   close(): void {
-    // Handle the close logic here, e.g., reset form or navigate away
-    this.walletName = '';
-    this.initialBalance = 0;
-    console.log('Form closed');
+    this.dialogRef.close(null);
   }
 }

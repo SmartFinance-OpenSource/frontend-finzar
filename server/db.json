@@ -61,7 +61,6 @@
       "name": "transfer"
     }
   ],
-
   "users": [
     {
       "id": 1,
@@ -77,6 +76,20 @@
       "name": "Cash Wallet",
       "balance": 2000,
       "total_balance": 2000
+    },
+    {
+      "id": 7773,
+      "userId": 1,
+      "name": "asdf",
+      "balance": 123,
+      "total_balance": 123
+    },
+    {
+      "id": 5544,
+      "userId": 1,
+      "name": "asdf",
+      "balance": 123,
+      "total_balance": 123
     }
   ],
   "earnings": [

@@ -1,4 +1,5 @@
-<mat-card appearance="outlined" style="display: inline-block; padding: 0.5rem;">
+<mat-card appearance="outlined" style="display: inline-block; padding: 0.5rem;" class="wallet-item"
+ [routerLink]="['/wallet', wallet.id]" >
   <div style="display: flex">
     <mat-icon fontIcon="account_balance_wallet" style="margin: 2rem 1rem;"></mat-icon>
     <div>

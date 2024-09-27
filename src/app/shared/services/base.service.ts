@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from "../../../environments/environment";
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { catchError, Observable, throwError } from "rxjs";
+import {Wallet} from "../../wallets/model/wallet.entity";
 
 @Injectable({
   providedIn: 'root'
@@ -27,11 +28,6 @@ export class BaseGetService<T> {
     return throwError(() => new Error('Something happened with request, please try again later'));
   }
 
-  // Get All Users
-  getAllUsers(): Observable<T> {
-    return this.http.get<T>(`${this.basePath}/users`, this.httpOptions)
-      .pipe(catchError(this.handleError));
-  }
 
   // Get User by ID
   getUserById(userId: any): Observable<T> {
@@ -81,12 +77,6 @@ export class BaseGetService<T> {
       .pipe(catchError(this.handleError));
   }
 
-  // Get All Transactions
-  getAllTransactions(): Observable<T> {
-    return this.http.get<T>(`${this.basePath}/transactions`, this.httpOptions)
-      .pipe(catchError(this.handleError));
-  }
-
   // Get Transaction by ID
   getTransactionById(transactionId: any): Observable<T> {
     return this.http.get<T>(`${this.basePath}/transactions/${transactionId}`, this.httpOptions)
@@ -110,4 +100,12 @@ export class BaseGetService<T> {
     return this.http.get<T>(`${this.basePath}/transaction_types`, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
+
+  // Create wallet method
+  createWallet(newWallet: any): Observable<T> {
+    return this.http.post<T>(`${this.basePath}/wallets`, JSON.stringify(newWallet), this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+
 }
