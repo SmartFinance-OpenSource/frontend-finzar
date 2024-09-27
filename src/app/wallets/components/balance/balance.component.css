@@ -1,0 +1,20 @@
+.balance-row {
+  display: flex;
+  justify-content: space-between;;
+  gap: 10px;
+}
+
+.balance-card {
+  flex: 1;
+  max-width: 350px;
+  height: 120px
+}
+
+.positive {
+  color: #13b7fd;
+  font-size: 2rem;
+}
+.negative {
+  color: #ef0000;
+  font-size: 2rem;
+}

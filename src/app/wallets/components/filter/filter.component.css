@@ -1,0 +1,13 @@
+.filters-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 25px;
+}
+.filter-options {
+  display: flex;
+  gap: 20px;
+}
+.reset-filters {
+  margin-left: auto;
+}

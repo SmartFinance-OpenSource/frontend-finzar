@@ -1,0 +1,51 @@
+<div>
+  <mat-form-field>
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input
+      [formGroup]="formsPlaceholder"
+      [rangePicker]="picker">
+      <input matStartDate placeholder="Start date" formControlName="start">
+      <input matEndDate placeholder="End date" formControlName="end">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+</div>
+<div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Filters</mat-card-title>
+      <div class="reset-filters">
+        <button mat-button (click)="resetFilters()">Reset filters</button>
+      </div>
+    </mat-card-header>
+    <mat-card-actions>
+      <form class="filters-form">
+        <div class="filter-options">
+          <mat-form-field appearance="fill" [formGroup]="formsPlaceholder">
+            <mat-label>By wallet</mat-label>
+            <mat-select formControlName="wallet">
+              <mat-option *ngFor="let wallet of wallets" [value]="wallet.name">
+                {{ wallet.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" [formGroup]="formsPlaceholder">
+            <mat-label>By category</mat-label>
+            <mat-select formControlName="category">
+              <mat-option *ngFor="let category of categories" [value]="category.name">
+                {{ category.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" [formGroup]="formsPlaceholder" >
+            <mat-label>By Note</mat-label>
+            <input matInput placeholder="Filer by specific keyword" formControlName="note">
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-card-actions>
+  </mat-card>
+</div>
