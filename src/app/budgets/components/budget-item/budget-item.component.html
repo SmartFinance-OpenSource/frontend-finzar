@@ -1,0 +1,18 @@
+<mat-card appearance="outlined" style="display: inline-block; padding: 0.5rem;">
+  <div style="display: flex;">
+    <mat-icon fontIcon="account_balance_wallet" style="margin: 2rem 1rem;"></mat-icon>
+    <div>
+      <mat-card-header>
+        <mat-card-title> {{ budget.name }} </mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="line-height: 1.2;">
+        <p style="margin: 0;">S/.{{ budget.current_amount }} to save</p>
+        <p style="margin: 2;">From S/.{{ budget.total_goal }}</p>
+        <p style="margin: 0;">{{ getPercentage() | number:'1.0-2' }}%</p>
+
+        <!-- Barra de progreso -->
+        <mat-progress-bar mode="determinate" [value]="getPercentage()"></mat-progress-bar>
+      </mat-card-content>
+    </div>
+  </div>
+</mat-card>

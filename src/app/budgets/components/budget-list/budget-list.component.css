@@ -1,0 +1,10 @@
+.wallet-list {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.wallet-item {
+  flex: 0 0 auto;
+}

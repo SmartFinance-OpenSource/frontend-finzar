@@ -1,0 +1,23 @@
+<mat-card appearance="outlined" style="display: inline-block; padding: 0.5rem;" class="saving-item"
+  [routerLink]="['/saving', saving.id]">
+  <div style="display: flex;">
+    <mat-icon fontIcon="account_balance_wallet" style="margin: 2rem 1rem;"></mat-icon>
+    <div>
+      <mat-card-header>
+        <mat-card-title> {{ saving.name }} </mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="line-height: 1.2;">
+        <p style="margin: 0;">S/.{{ saving.current_amount }} to save</p>
+        <p style="margin: 2;">From S/.{{ saving.total_goal }}</p>
+        <p style="margin: 0;">{{ getPercentage() | number:'1.0-2' }}%</p>
+
+        <!-- Barra de progreso -->
+        <mat-progress-bar mode="determinate" [value]="getPercentage()"></mat-progress-bar>
+      </mat-card-content>
+      <mat-card-actions>
+        <!-- Botón para eliminar el ahorro -->
+        <button mat-button color="warn" (click)="onDeleteSaving(saving.id)">Delete</button>
+      </mat-card-actions>
+    </div>
+  </div>
+</mat-card>

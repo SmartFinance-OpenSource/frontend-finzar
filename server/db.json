@@ -83,6 +83,20 @@
       "name": "gnf",
       "balance": 123,
       "total_balance": 123
+    },
+    {
+      "id": 3526,
+      "userId": 1,
+      "name": "asdfasd",
+      "balance": 123,
+      "total_balance": 123
+    },
+    {
+      "id": 9122,
+      "userId": 1,
+      "name": "TEST",
+      "balance": 8,
+      "total_balance": 8
     }
   ],
   "earnings": [

@@ -1,0 +1,135 @@
+
+<div style="margin: 2rem 24rem;">
+  <mat-form-field>
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input matStartDate placeholder="Start date">
+      <input matEndDate placeholder="End date">
+    </mat-date-range-input>
+    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+</div>
+
+<div style="margin: 2rem 24rem;">
+  <div class="saving-row">
+    <mat-card class="saving-card">
+      <mat-card-header>
+        <mat-card-title>Budget</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <br>
+        <p class="positive">2000.00 PEN</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="balance-card">
+      <mat-card-header>
+        <mat-card-title>Spent so far</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <br>
+        <p class="positive">-973.60 PEN</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="balance-card">
+      <mat-card-header>
+        <mat-card-title>Money left</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <br>
+        <p class="positive">1027.40 PEN</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="balance-card">
+      <mat-card-header>
+        <mat-card-title>Average Daily Budget</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <br>
+        <p class="positive">34.25 PEN/Day</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div style="margin: 2rem 24rem;">
+  <div class="accounted">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Budget progress</mat-card-title>
+      </mat-card-header>
+      <div style="margin: 1rem 11rem;">
+        <p>Keep Saving. You need to save 34.25 PEN each day for the rest of the period.</p>
+      </div>
+      <div style="margin: 1rem 15rem;">
+        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+      </div>
+      <div style="margin: 1rem 10rem;" align="center">
+        <button mat-flat-button>See all</button>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<div style="margin: 2rem 24rem;">
+  <div class="accounted">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Accounted categories</mat-card-title>
+        <mat-card-subtitle>Sep 18 - Oct 17</mat-card-subtitle>
+      </mat-card-header>
+      <mat-progress-spinner mode="determinate" value="100"></mat-progress-spinner>
+      <mat-card-footer class="footer-content">
+        <div class="income-section">
+          <mat-icon>account_balance_wallet</mat-icon>
+          <mat-card-subtitle>Extra income</mat-card-subtitle>
+        </div>
+
+        <div class="transaction-section">
+          <span class="transactions">3 transactions</span>
+        </div>
+
+        <div class="amount-section">
+          <span class="amount">+943.00 PEN</span>
+        </div>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
+
+
+<div style="margin: 2rem 24rem;">
+  <h6>Saving's transactions</h6>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="transactions">
+      <mat-header-cell *matHeaderCellDef> Transactions </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.transactions}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="amount">
+      <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

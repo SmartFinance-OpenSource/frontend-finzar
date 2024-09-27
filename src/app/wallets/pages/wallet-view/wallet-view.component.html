@@ -1,6 +1,9 @@
 <app-header-domain [wallet]="wallet"/>
 
 <div style=" margin: 2rem 24rem; ">
+  <div>
+    <button mat-raised-button color="primary" (click)="onTransactionDialog()">Add Transaction</button>
+  </div>
   <app-filter style="margin: 1rem"/>
   <app-balance style="margin: 1rem" />
   <app-transactions-table style="margin: 1rem"  [transactions]="transactions" />

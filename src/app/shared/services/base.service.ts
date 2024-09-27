@@ -107,5 +107,20 @@ export class BaseGetService<T> {
       .pipe(catchError(this.handleError));
   }
 
+  // Create transaction method
+  createTransaction(newTransaction: any): Observable<T> {
+    return this.http.post<T>(`${this.basePath}/transactions`, JSON.stringify(newTransaction), this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+  createSaving(newSaving: any): Observable<T> {
+    return this.http.post<T>(`${this.basePath}/savings`, JSON.stringify(newSaving), this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+  deleteSaving(savingId: number): Observable<void> {
+    return this.http.delete<void>(`${this.basePath}/savings/${savingId}`, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
 
 }

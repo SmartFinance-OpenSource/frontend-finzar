@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>Add New Saving Goal</h2>
+
+<mat-dialog-content>
+  <!-- General Info -->
+  <h3>General Info</h3>
+  <mat-form-field appearance="fill" style="width: 100%; margin: 0.5rem 0;">
+    <mat-label>Goal Name</mat-label>
+    <input matInput required [(ngModel)]="savingName" name="savingName" #savingNameInput="ngModel" />
+    <mat-error *ngIf="savingNameInput.invalid && savingNameInput.touched">
+      Goal name is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="width: 100%; margin: 0.5rem 0;">
+    <mat-label>Amount</mat-label>
+    <span matTextPrefix>$&nbsp;</span>
+    <input matInput type="number" required [(ngModel)]="totalGoal" name="totalGoal" #goalInput="ngModel" />
+    <mat-error *ngIf="goalInput.invalid && goalInput.touched">
+      Amount is required
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Saving Filter -->
+  <h3>Saving Filter</h3>
+  <mat-form-field appearance="fill" style="width: 100%; margin: 0.5rem 0;">
+    <mat-label>Saving for</mat-label>
+    <input matInput [(ngModel)]="savingFor" name="savingFor" />
+  </mat-form-field>
+
+  <!-- Saving Period -->
+  <h3>Saving Period</h3>
+  <mat-form-field appearance="fill" style="width: 100%; margin: 0.5rem 0;">
+    <mat-label>Recurrence</mat-label>
+    <mat-select [(ngModel)]="recurringId" name="recurrence">
+      <mat-option *ngFor="let recurrence of recurrences" [value]="recurrence.value">
+        {{ recurrence.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="width: 100%; margin: 0.5rem 0;">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>//
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Close</button>
+  <button mat-button (click)="onSubmit()" [disabled]="!savingName || totalGoal <= 0">Add Saving</button>
+</mat-dialog-actions>

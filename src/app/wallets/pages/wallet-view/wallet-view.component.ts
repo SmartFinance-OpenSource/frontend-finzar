@@ -7,12 +7,23 @@ import {WalletListComponent} from "../../components/wallet-list/wallet-list.comp
 import {FilterComponent} from "../../components/filter/filter.component";
 import {TransactionsTableComponent} from "../../components/transactions-table/transactions-table.component";
 import {BalanceComponent} from "../../components/balance/balance.component";
-import {Transaction} from "../../model/transaction.entity";
+import {Transaction} from "../../../shared/model/transaction.entity";
+import { MatButtonModule} from "@angular/material/button";
+import {TransactionDialogComponent} from "../../components/transaction-dialog/transaction-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-wallet-view',
   standalone: true,
-  imports: [HeaderDomainComponent, WalletListComponent, FilterComponent, TransactionsTableComponent, BalanceComponent],
+  imports: [
+    HeaderDomainComponent,
+    WalletListComponent,
+    FilterComponent,
+    TransactionsTableComponent,
+    BalanceComponent,
+    MatButtonModule,
+
+  ],
   templateUrl: './wallet-view.component.html',
   styleUrl: './wallet-view.component.css'
 })
@@ -22,9 +33,11 @@ export class WalletViewComponent implements OnInit {
   wallet!: Wallet;
   transactions: Transaction[] = [];
 
+
   constructor(
     private route: ActivatedRoute,
-    private baseGetService: BaseGetService<any>
+    private baseGetService: BaseGetService<any>,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -61,4 +74,15 @@ export class WalletViewComponent implements OnInit {
       }
     );
   }
+
+  onTransactionDialog(): void {
+    const dialogRef = this.dialog.open(TransactionDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // Handle the result if needed
+    });
+  }
+
+
 }

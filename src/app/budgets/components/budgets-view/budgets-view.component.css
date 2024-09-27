@@ -1,0 +1,51 @@
+
+.amount {
+  font-weight: bold;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.income-section {
+  display: flex;
+  align-items: center;
+}
+
+.accounted {
+
+}
+
+.saving-row {
+  display: flex;
+  justify-content: space-between;;
+  gap: 10px;
+}
+
+.saving-card {
+  flex: 1;
+  max-width: 350px;
+  height: 120px
+}
+
+.positive {
+  color: #13b7fd;
+  font-size: 2rem;
+}
+.negative {
+  color: #ef0000;
+  font-size: 2rem;
+}
+
+.mat-mdc-table {
+  width: 100%;
+  max-height: 500px;
+  overflow: auto;
+}
+
+.mat-column-name {
+  height: 100px;
+}
